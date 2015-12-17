@@ -1,0 +1,50 @@
+URxvt*font:				xft:Ubuntu Mono derivative Powerline:size=12:antialias=true,xft:Liberation Mono:antialias=true:hinting=true,Awesome 10
+URxvt*boldFont:				xft:Ubuntu Mono derivative Powerline:size=12:antialias=true,xft:Liberation Mono:antialias=true:hinting=true
+URxvt*scrollBar:		false
+URxvt*matcher.button:	1
+!URxvt.letterSpace:		-1
+
+URxvt.background:		#2f343f
+
+URxvt*cursorBlink:      	true
+URxvt*cursorColor:      	#FFFFFF
+
+Xft.dpi:				96
+Xft.antialias:			true
+Xft.autohint:			false
+Xft.hinting:			true
+Xft.hintstyle:			hintslight
+Xft.rgba:				rgb
+Xft.lcdfilter:			lcddefault
+ntilias:				true
+
+URxvt.perl-ext-common:	default,clipboard
+URxvt.iso14755:			false
+
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+
+URxvt.clipboard.copycmd:	xsel -ib
+Urxvt.clipboard.pastecmd:	xsel -ob
+
+*foreground:   #c5c8c6
+*background:   #1d1f21
+*cursorColor:  #aeafad
+*color0:       #000000
+*color1:       #912226
+*color2:       #778900
+*color3:       #ae7b00
+*color4:       #1d2594
+*color5:       #682a9b
+*color6:       #2b6651
+*color7:       #929593
+*color8:       #666666
+*color9:       #cc6666
+*color10:      #b5bd68
+*color11:      #f0c674
+*color12:      #81a2be
+*color13:      #b294bb
+*color14:      #8abeb7
+*color15:      #ecebec
+
+URxvt.cursorColor: #FFFFFF

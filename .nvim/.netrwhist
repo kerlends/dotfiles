@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/konrad'
+let g:netrw_dirhist_2='/home/konrad/projects/anags/anags'
+let g:netrw_dirhist_3='/home/konrad/homework/3282/assgn4'
+let g:netrw_dirhist_4='/var/log/nginx'
+let g:netrw_dirhist_5='/home/konrad/.i3/scripts'
+let g:netrw_dirhist_6='/home/konrad/projects/alohacpp/sim'
+let g:netrw_dirhist_7='/home/konrad/projects/bones/blog'
+let g:netrw_dirhist_8='/home/konrad/projects/wordsoup/anags/web/static/app/views'
+let g:netrw_dirhist_9='/home/konrad/projects/wordsoup/anags/web/static/app/controllers'

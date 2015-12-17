@@ -1,0 +1,10 @@
+.git
+.cache
+*.log
+*.py[cod]
+__pycache__
+.ropeproject
+migrations
+cache
+CACHE
+.nvim/plugged
