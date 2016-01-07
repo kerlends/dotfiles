@@ -93,10 +93,11 @@ TEXT
 [
 #{"full_text": "${exec ~/scripts/music.sh}", "color":"\#2ebd59"},
 {"full_text": " ${fs_free /home}", "color":"\#FFFFFF"},
+{"full_text": "${memperc}%", "color": "\#FFFFFF"},
 #{"full_text": "${exec ~/scripts/dropbox.sh}", "color":"\#007ee5"},
-{"full_text": "${exec ~/.i3/scripts/brightness.sh}", "color":"\#FFFFFF"},
+#{"full_text": "${exec ~/.i3/scripts/brightness.sh}", "color":"\#FFFFFF"},
 {"full_text": "${exec ~/.i3/scripts/volume.sh}", "color":"\#FFFFFF"},
 {"full_text": "${exec perl ~/.i3/scripts/battery}", "color":"\#FFFFFF"},
-{"full_text": "${exec ~/.i3/scripts/wifi}", "color":"\#39bd00"},
 {"full_text": "  ${time %b %d}    ${time %H:%M}", "color":"\#FFFFFF"}
+#{"full_text": "${exec ~/.i3/scripts/wifi}", "color":"\#39bd00"}
 ],
