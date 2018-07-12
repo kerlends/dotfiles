@@ -1,3 +1,0 @@
-#!/bin/bash
-name=`iwconfig wlp3s0 | grep ESSID | sed 's/"/ /g' | awk '{print $5}'`
-echo "" $name

@@ -1,0 +1,1 @@
+/home/konrad/.config/fisherman/bass/functions/bass.fish
