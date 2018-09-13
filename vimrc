@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
     " Colorschemes
     Plug 'chriskempson/base16-vim'
     Plug 'whatyouhide/vim-gotham'
+    Plug 'KKPMW/sacredforest-vim'
 
     " Airline
     Plug 'vim-airline/vim-airline'
@@ -18,33 +19,43 @@ call plug#begin('~/.vim/plugged')
     Plug 'jparise/vim-graphql'
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
+    Plug 'leafgarland/typescript-vim'
 
     " Lang utils
     Plug 'flowtype/vim-flow'
     Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-surround'
+
     Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ }
-    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
-    Plug 'reasonml-editor/vim-reason-plus'
+
+    if has("nvim")
+        Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
+    else
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'roxma/nvim-yarp'
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    " Plug 'reasonml-editor/vim-reason-plus'
 
     " Intellisense / linting
     Plug 'w0rp/ale'
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    " Plug 'SirVer/ultisnips'
+    " Plug 'honza/vim-snippets'
 
     "Plug 'valloric/YouCompleteMe'
 
     " Misc
+    " Plug 'whiteinge/diffconflicts'
     Plug 'junegunn/fzf', {
                 \ 'dir': '~/.fzf',
                 \ 'do': './install --all'
                 \ }
 
     " Javascript
-    Plug 'Galooshi/vim-import-js'
+    " Plug 'Galooshi/vim-import-js'
 call plug#end()
 
 set encoding=utf-8
@@ -57,23 +68,26 @@ set shiftwidth=4
 set softtabstop=4
 " set textwidth=79
 
-set noswapfile
+" set noswapfile
 set number
 set autochdir
 set hidden
 
 let mapleader = ","
 
-autocmd FileType javascript,json setlocal ts=2 sw=2 sts=2
+autocmd FileType javascript,json,typescript setlocal ts=2 sw=2 sts=2
 autocmd BufNewFile,BufRead .prettierrc,.gqlconfig,.babelrc,.eslintrc,.tern-project set filetype=json
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+" autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 
 " Colors
-let base16colorspace=256
-colorscheme base16-github
+" let base16colorspace=256
+set termguicolors
+colorscheme base16-railscasts
 
 " Javascript / JSX
 let g:jsx_ext_required = 0
@@ -83,13 +97,16 @@ let g:flow#enable = 0
 let g:flow#errjmp = 0
 
 " ALE
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
             \ 'javascript': ['flow', 'eslint'],
+            \ 'typescript': ['tsserver'],
+            \ 'reason': ['merlin'],
             \ }
 let g:ale_fixers = {
             \ 'javascript': ['prettier'],
+            \ 'typescript': ['prettier'],
             \ }
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '?'
@@ -114,8 +131,11 @@ let g:fzf_action = {
     \}
 
 " LSP
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_autoStart = 0
+let g:LanguageClient_diagnosticsEnable = 1
+let g:LanguageClient_loadSettings = 0
+let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
+let g:LanguageClient_serverStderr = '/tmp/LanguageClient.stderr.log'
 let g:LanguageClient_serverCommands = {
    \ 'reason': ['ocaml-language-server', '--stdio'],
    \ 'ocaml': ['ocaml-language-server', '--stdio'],
@@ -129,6 +149,9 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'snips']
 
-"nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-"nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-"nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> gh :call LanguageClient_serverStatusMessage()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+" :set rtp+=/home/konrad/.opam/system/share/merlin/vim

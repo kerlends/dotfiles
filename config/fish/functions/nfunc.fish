@@ -4,6 +4,11 @@ function nfunc
         return
     end
 
-    vim $HOME/.config/fish/functions/$argv[1].fish
+    set func_path $HOME/.config/fish/functions/$argv[1].fish
+
+    vim $func_path
+
+    source $func_path
+    source $FISH_DIR/config.fish
 end
 

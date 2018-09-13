@@ -1,12 +1,14 @@
-function clr
-    echo (set_color $argv[2])$argv[1](set_color normal)
-end
-
-function clrb
-    echo (set_color $argv[3] --bold)$argv[1](set_color normal)
-end
+set -g background_color "#282828"
+set -g theme_name_color "#f7ca88"
+set -g count_color "#fff"
 
 function base16-ls
+    set -g _bg (set_color -b $background_color)
+    set -g _fg (set_color $theme_name_color)
+    set -g _fgb (set_color $theme_name_color --bold)
+    set -g _cfg (set_color $count_color --bold)
+    set -g _clrr (set_color normal)
+
     set -g theme_list_path $HOME/.config/.b16-themes-list
     set -g theme_list_path_raw $HOME/.config/.b16-themes-list-raw
     set -g colors 1
@@ -24,10 +26,10 @@ function base16-ls
 
         for line in (ls $HOME/.config/base16-shell/scripts)
             set full_theme_name (echo $line | sed 's/\.sh//g')
-            set full_theme_name_bold (clrb $full_theme_name yellow)
-            set b16_theme_name_normal (echo $full_theme_name | sed 's/base16-//')
-            set b16_theme_name (clrb $b16_theme_name_normal white)
-            set theme_name "$count. $b16_theme_name ($full_theme_name_bold)"
+            set b16_theme_name (echo $full_theme_name | sed 's/base16-//')
+            set theme_name "$_bg$_cfg$count.$_clrr$_bg $_fg$b16_theme_name $_fgb($full_theme_name)$_clrr"
+
+            echo -e $theme_name
 
             if test -z $base16_themes
                 set base16_themes $theme_name

@@ -1,4 +1,6 @@
 function dl
+    mkdir -p /mnt/media/Files
+
     set dir /mnt/media/Files
 
     if test (count $argv) -eq 0

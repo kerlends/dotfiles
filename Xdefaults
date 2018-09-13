@@ -1,0 +1,36 @@
+!   xft
+
+Xft.autohint        :   0
+Xft.lcdfilter       :   lcddefault
+Xft.hintstyle       :   hintslight
+Xft.hinting         :   1
+Xft.antialias       :   1
+Xft.rgba            :   rgb
+Xft.dpi             :   96
+
+
+!   xterm
+
+XTerm*locale        :   true
+
+
+!   urxvt
+
+URxvt*termName      :   rxvt-unicode
+URxvt*geometry      :   115x40
+URxvt*font          :   xft:Fantasque Sans Mono:pixelsize=22,xft:DejaVu Sans Mono for Powerline:pixelsize=22
+URxvt*boldFont      :   xft:Fantasque Sans Mono:bold:pixelsize=22,xft:DejaVu Sans Mono for Powerline:bold:pixelsize=22
+
+URxvt*letterSpace   :   true
+
+URxvt*iso14755      :   false
+URxvt*iso14755_52      :   false
+
+URxvt*depth         :   24
+URxvt*borderless    :   1
+URxvt*scrollBar     :   false
+URxvt*saveLines     :   2000
+URxvt*shading       :   10
+
+
+
