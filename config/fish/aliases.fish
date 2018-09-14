@@ -14,8 +14,6 @@ alias vfn="vf new -p python3"
 alias vfl="vf ls"
 alias vfr="vf rm"
 
-alias vim="nvim"
-
 alias ygad="yarn global add"
 alias yad="yarn add"
 alias yadd="yarn add --dev"

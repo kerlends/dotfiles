@@ -1,9 +1,12 @@
 aria2
 autoconf
 automake
+binutils
 chromium
 cmake
+fakeroot
 fish
+gcc
 gnu-netcat
 grub
 gtop
@@ -23,6 +26,7 @@ pkgconf
 powerline-fonts
 read-edid
 rofi
+rxvt-unicode
 scrot
 strace
 sudo

@@ -85,8 +85,8 @@ nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 
 " Colors
-" let base16colorspace=256
-set termguicolors
+let base16colorspace=256
+" set termguicolors
 colorscheme base16-railscasts
 
 " Javascript / JSX
