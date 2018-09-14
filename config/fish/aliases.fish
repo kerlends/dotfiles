@@ -18,4 +18,5 @@ alias ygad="yarn global add"
 alias yad="yarn add"
 alias yadd="yarn add --dev"
 
+alias vimrc="vim $HOME/.vimrc"
 alias svim="sudo vim"
